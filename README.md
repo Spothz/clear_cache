@@ -6,7 +6,7 @@
 
 1. Чтоты автоматизировать очистку можно так:
 
-	  cd /sbin && wget https://raw.githubusercontent.com/Spothz/clear_cache/refs/heads/main/clear_cache.sh
+	   cd /sbin && wget https://raw.githubusercontent.com/Spothz/clear_cache/refs/heads/main/clear_cache.sh
 
 2. Выдать права:
 
