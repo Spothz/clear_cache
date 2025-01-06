@@ -14,8 +14,11 @@ GEOSITE_URL="https://raw.githubusercontent.com/runetfreedom/russia-v2ray-rules-d
 mkdir -p "$TEMP_DIR"
 
 # Скачиваем файлы
-wget -q -O "$TEMP_DIR/geoip.dat" "$GEOIP_URL"
-wget -q -O "$TEMP_DIR/geosite.dat" "$GEOSITE_URL"
+echo "Загрузка geoip.dat..."
+wget -O "$TEMP_DIR/geoip.dat" "$GEOIP_URL" && echo "geoip.dat успешно загружен." || echo "Ошибка при загрузке geoip.dat."
+
+echo "Загрузка geosite.dat..."
+wget -O "$TEMP_DIR/geosite.dat" "$GEOSITE_URL" && echo "geosite.dat успешно загружен." || echo "Ошибка при загрузке geosite.dat."
 
 # Проверяем, успешно ли скачаны файлы
 if [ -f "$TEMP_DIR/geoip.dat" ] && [ -f "$TEMP_DIR/geosite.dat" ]; then
@@ -23,7 +26,7 @@ if [ -f "$TEMP_DIR/geoip.dat" ] && [ -f "$TEMP_DIR/geosite.dat" ]; then
     mv "$TEMP_DIR/geoip.dat" "$TARGET_DIR/geoip.dat"
     mv "$TEMP_DIR/geosite.dat" "$TARGET_DIR/geosite.dat"
     
-    echo "Файлы успешно обновлены."
+    echo "Файлы успешно обновлены и перемещены в $TARGET_DIR."
 else
     echo "Ошибка при загрузке файлов."
 fi
